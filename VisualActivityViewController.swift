@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class VisualActivityViewController: UIActivityViewController {
+@objcMembers final class VisualActivityViewController: UIActivityViewController {
     
     /// The preview container view
     private var preview: UIVisualEffectView!
@@ -183,8 +183,10 @@ final class VisualActivityViewController: UIActivityViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        UIView.animate(withDuration: fadeOutDuration) {
+        UIView.animate(withDuration: fadeOutDuration, animations: {
             self.preview?.alpha = 0
+        }) { _ in
+            self.preview?.removeFromSuperview()
         }
     }
     
