@@ -107,7 +107,7 @@
 				TargetAttributes = {
 					48F3BD5320B10A4C0060C777 = {
 						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -287,7 +287,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WK4Y48HVH2;
+				DEVELOPMENT_TEAM = TRUWSKVJ7Z;
 				INFOPLIST_FILE = "$(SRCROOT)/VisualExample/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -296,7 +296,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.ackermann.VisualExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -307,7 +307,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WK4Y48HVH2;
+				DEVELOPMENT_TEAM = TRUWSKVJ7Z;
 				INFOPLIST_FILE = "$(SRCROOT)/VisualExample/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -316,7 +316,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.ackermann.VisualExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
