@@ -15,7 +15,7 @@ import UIKit
     
     /// Internal storage of the activity items
     private let activityItems: [Any]
-
+    
     // MARK: - Configuration
     
     /// The duration for the preview fading in
@@ -28,28 +28,31 @@ import UIKit
     var previewCornerRadius: CGFloat = 12
     
     /// The corner radius of the preview image
-    var previewImageCornerRadius: CGFloat = 3
+    var previewImageCornerRadius: CGFloat = 4
     
     /// The side length of the preview image
-    var previewImageSideLength: CGFloat = 80
+    var previewImageSideLength: CGFloat = 40
     
     /// The padding around the preview
-    var previewPadding: CGFloat = 12
+    var previewPadding: CGFloat = 16
+    
+    /// The padding around internal elements
+    var previewInternalPadding: CGFloat = 8
     
     /// The number of lines to preview
-    var previewNumberOfLines: Int = 5
+    var previewNumberOfLines: Int = 2
     
     /// The preview color for URL activity items
     var previewLinkColor: UIColor = UIColor(red: 0, green: 0.47, blue: 1, alpha: 1)
     
     /// The font for the preview label
-    var previewFont: UIFont = UIFont.systemFont(ofSize: 18)
+    var previewFont: UIFont = UIFont.boldSystemFont(ofSize: 14)
     
     /// The margin from the top of the viewController's superview
     var previewTopMargin: CGFloat = 8
     
     /// The margin from the top of the viewController's view
-    var previewBottomMargin: CGFloat = 8
+    var previewBottomMargin: CGFloat = 1
     
     // MARK: - Init
     
@@ -86,6 +89,22 @@ import UIKit
         preview.clipsToBounds = true
         preview.alpha = 0
         
+        let closeButton = UIButton()
+        closeButton.setTitle("×", for: .normal)
+        closeButton.setTitleColor(UIColor.lightGray, for: .normal)
+        closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 26)
+        closeButton.addTarget(self, action: #selector(handleSwipe(_:)), for: .touchUpInside)
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        preview.contentView.addSubview(closeButton)
+        
+        var constraints = [
+            closeButton.topAnchor.constraint(equalTo: preview.topAnchor, constant: previewInternalPadding),
+            closeButton.trailingAnchor.constraint(equalTo: preview.trailingAnchor, constant: -previewInternalPadding),
+            closeButton.widthAnchor.constraint(equalTo: closeButton.heightAnchor),
+            closeButton.heightAnchor.constraint(lessThanOrEqualToConstant: 40)
+        ]
+        
         let previewLabel = UILabel()
         previewLabel.translatesAutoresizingMaskIntoConstraints = false
         previewLabel.numberOfLines = previewNumberOfLines
@@ -107,15 +126,15 @@ import UIKit
                 attributedString.append(NSAttributedString(string: text, attributes: baseAttributes))
             }
         }
-
+        
         previewLabel.attributedText = attributedString
         
         preview.contentView.addSubview(previewLabel)
-        var constraints = [
+        constraints.append(contentsOf:[
             previewLabel.topAnchor.constraint(equalTo: preview.topAnchor, constant: previewPadding),
-            previewLabel.trailingAnchor.constraint(equalTo: preview.trailingAnchor, constant: -previewPadding),
+            previewLabel.trailingAnchor.constraint(equalTo: closeButton.leadingAnchor, constant: 2),
             previewLabel.bottomAnchor.constraint(equalTo: preview.bottomAnchor, constant: -previewPadding)
-        ]
+        ])
         
         if let previewImage = activityItems.first(where: { $0 is UIImage }) as? UIImage {
             let previewImageView = UIImageView(image: previewImage)
@@ -134,7 +153,7 @@ import UIKit
                 previewImageView.heightAnchor.constraint(lessThanOrEqualToConstant: previewImageSideLength),
                 previewImageView.topAnchor.constraint(equalTo: preview.topAnchor, constant: previewPadding),
                 previewImageView.leadingAnchor.constraint(equalTo: preview.leadingAnchor, constant: previewPadding),
-                previewLabel.leadingAnchor.constraint(equalTo: previewImageView.trailingAnchor, constant: previewPadding),
+                previewLabel.leadingAnchor.constraint(equalTo: previewImageView.trailingAnchor, constant: previewInternalPadding),
                 previewImageView.bottomAnchor.constraint(lessThanOrEqualTo: preview.bottomAnchor, constant: -previewPadding)
             ])
         }

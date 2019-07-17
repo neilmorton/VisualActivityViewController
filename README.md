@@ -53,30 +53,38 @@ var fadeOutDuration: TimeInterval = 0.3
 var previewCornerRadius: CGFloat = 12
 
 /// The corner radius of the preview image
-var previewImageCornerRadius: CGFloat = 3
+var previewImageCornerRadius: CGFloat = 4
 
 /// The side length of the preview image
-var previewImageSideLength: CGFloat = 80
+var previewImageSideLength: CGFloat = 40
 
 /// The padding around the preview
-var previewPadding: CGFloat = 12
+var previewPadding: CGFloat = 16
+
+/// The padding around internal elements
+var previewInternalPadding: CGFloat = 8
 
 /// The number of lines to preview
-var previewNumberOfLines: Int = 5
+var previewNumberOfLines: Int = 2
 
 /// The preview color for URL activity items
 var previewLinkColor: UIColor = UIColor(red: 0, green: 0.47, blue: 1, alpha: 1)
 
 /// The font for the preview label
-var previewFont: UIFont = UIFont.systemFont(ofSize: 18)
+var previewFont: UIFont = UIFont.boldSystemFont(ofSize: 14)
 
-/// The margin from the top of the viewController's window
+/// The margin from the top of the viewController's superview
 var previewTopMargin: CGFloat = 8
 
 /// The margin from the top of the viewController's view
-var previewBottomMargin: CGFloat = 8
+var previewBottomMargin: CGFloat = 1
 ```
 
 ## License
 
 This project is available under the MIT license. See the LICENSE file for more info.
+
+## Release Notes
+-----------------
+
+See [CHANGELOG.md](https://github.com/neilmorton/VisualActivityViewController/blob/master/CHANGELOG.md)
