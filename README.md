@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-<a href="https://developer.apple.com/swift/"><img src="https://img.shields.io/badge/Swift-4.1-orange.svg?style=flat" style="max-height: 250px;" alt="Swift"/></a>
+<a href="https://developer.apple.com/swift/"><img src="https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat" style="max-height: 250px;" alt="Swift"/></a>
 <br>
 <a href="http://twitter.com/naturaln0va"><img src="https://img.shields.io/twitter/follow/naturaln0va.svg?style=flat" style="max-height: 250px;" alt="Twitter"/></a>
 </p>
