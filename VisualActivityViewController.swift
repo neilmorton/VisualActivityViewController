@@ -51,8 +51,11 @@ import UIKit
     /// The margin from the top of the viewController's superview
     var previewTopMargin: CGFloat = 8
     
-    /// The margin from the top of the viewController's view
-    var previewBottomMargin: CGFloat = 1
+    /// The margin from the top of the viewController's view (iPhone)
+    var previewBottomMarginIphone: CGFloat = 8
+    
+    /// The margin from the top of the viewController's view (iPad)
+    var previewBottomMarginIpad: CGFloat = 1
     
     // MARK: - Init
     
@@ -185,6 +188,8 @@ import UIKit
         else {
             topAnchor = superview.topAnchor
         }
+        
+        let previewBottomMargin = isPad ? previewBottomMarginIpad : previewBottomMarginIphone
         
         let constraints = [
             preview.leadingAnchor.constraint(equalTo: view.leadingAnchor),
